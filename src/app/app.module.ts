@@ -25,7 +25,7 @@ import {RecipeEffects} from "./recipes/store/recipe.effects";
     ],
   imports: [
     //like java packages or external libraries
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
