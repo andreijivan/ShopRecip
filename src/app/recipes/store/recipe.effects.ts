@@ -18,7 +18,7 @@ export class RecipeEffects {
     private store: Store<fromApp.AppState>) {}
 
   @Effect()
-  fetchRecies = this.actions$.pipe(
+  fetchRecipes = this.actions$.pipe(
     ofType(RecipesActions.FETCH_RECIPES),
     switchMap(() => {
       return this.http.

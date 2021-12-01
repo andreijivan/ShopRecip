@@ -36,6 +36,6 @@ import {RecipeEffects} from "./recipes/store/recipe.effects";
     CoreModule,
   ],
   bootstrap: [AppComponent],//what component starts you app
- // providers: [DummyService]
+
 })
 export class AppModule { }
