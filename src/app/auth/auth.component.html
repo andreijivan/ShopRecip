@@ -1,5 +1,7 @@
 <ng-template appPlaceholder></ng-template>
+
 <div class="row">
+
   <div class="col-xs-12 col-md-6 col-md-offset-3">
   <!--<div class="alert alert-danger" *ngIf="error">
     <p>{{ error }}</p>
@@ -7,7 +9,8 @@
   <!--  <app-alert [message]="error"
                *ngIf="error"
                (close)="onHandleError()"></app-alert>-->
-
+    <h2>Login first!</h2>
+    <h2></h2>
     <div *ngIf="isLoading" style="text-align: center;">
       <app-loading-spinner></app-loading-spinner>
     </div>
@@ -33,7 +36,7 @@
       </div>
       <div>
         <button class="btn btn-primary"type="submit" [disabled]="!authForm.valid">
-          {{ isLoginMode ? 'Login' : 'Sign Up'}}</button>
+          Login</button>
 
       </div>
     </form>
