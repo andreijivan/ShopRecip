@@ -5,7 +5,6 @@ import {AlertComponent} from "./alert/alert.component";
 import {LoadingSpinnerComponent} from "./loading-spinner/loading-spinner.component";
 import {PlaceholderDirective} from "./placeholder/placeholder.directive";
 import {DropdownDirective} from "./dropdown.directive";
-import {DummyService} from "../dummy.service";
 
 @NgModule({
   declarations: [
@@ -26,6 +25,6 @@ import {DummyService} from "../dummy.service";
   ],entryComponents: [
     AlertComponent //components created programmatically
   ],
-  providers: [DummyService]
+  providers: []
 })
 export  class SharedModule{}

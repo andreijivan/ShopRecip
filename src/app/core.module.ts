@@ -8,7 +8,6 @@ import {DataStorageService} from "./shared/data-storage.service";
 import {RecipesResolverService} from "./recipes/recipes-resolver.service";
 import {AuthService} from "./auth/auth.service";
 import {AuthGuard} from "./auth/auth.guard";
-import {DummyService} from "./dummy.service";
 
 @NgModule({
   providers: [

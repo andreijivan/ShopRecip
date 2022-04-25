@@ -21,10 +21,6 @@ export class AuthComponent implements OnDestroy {
               private router: Router,
               private componentFactoryResolver: ComponentFactoryResolver) {}
 
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
-  }
-
   onSubmit (form: NgForm) {
     if (!form.valid) {
       return;
@@ -37,12 +33,9 @@ export class AuthComponent implements OnDestroy {
     if (this.isLoginMode){
     authObservable =  this.authService.login(email, password);
     }
-    else{
-     authObservable = this.authService.signup(email,password);
-    }
 
     authObservable.subscribe( resData => {
-        console.log(resData);
+     //   console.log(resData);
         this.isLoading = false;
         this.router.navigate(['./recipes']);
       },

@@ -23,23 +23,6 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  signup(emailFromSignUp: string, pwdFromSignUp: string) {
-   return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey,
-      {
-        email: emailFromSignUp,
-        password: pwdFromSignUp,
-        returnSecureToken: true
-      }).pipe(catchError(this.handleError), tap(respData => {
-        this.handleAuthenticationOrSignup(
-          respData.email,
-          respData.localId,
-          respData.idToken,
-          +respData.expiresIn)
-      })
-   );
-  }
-
   login (emailForLogin: string, passwordForLogin: string) {
   return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
     {
@@ -47,7 +30,7 @@ export class AuthService {
       password: passwordForLogin,
       returnSecureToken: true
     }).pipe(catchError(this.handleError), tap(respData => {
-    this.handleAuthenticationOrSignup(
+    this.handleAuthentication(
       respData.email,
       respData.localId,
       respData.idToken,
@@ -79,7 +62,7 @@ export class AuthService {
     }
   }
 
-  private handleAuthenticationOrSignup(email: string, localId: string, idToken: string, expiresIn: number) {
+  private handleAuthentication(email: string, localId: string, idToken: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new UserModel(
       email,
