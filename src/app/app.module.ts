@@ -12,10 +12,10 @@ import {CoreModule} from "./core.module";
 
 @NgModule({
   //declarations = java classes
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-    ],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+  ],
   imports: [
     //like java packages or external libraries
     BrowserModule,
@@ -25,7 +25,9 @@ import {CoreModule} from "./core.module";
     SharedModule,
     CoreModule,
   ],
-  bootstrap: [AppComponent],//what component starts you app
- // providers: [DummyService]
+  bootstrap: [AppComponent],
+  exports: [
+    HeaderComponent
+  ],
 })
 export class AppModule { }

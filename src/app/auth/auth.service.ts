@@ -75,22 +75,22 @@ export class AuthService {
   }
 
   private handleError (errorResponse: HttpErrorResponse) {
-    let errorMesaage = 'An unknown error occured!';
+    let errorMessage = 'An unknown error occured!';
     if (!errorResponse.error || !errorResponse.error.error) {
-      return throwError(errorMesaage)
+      return throwError(errorMessage)
     }
     switch (errorResponse.error.error.message){
       case 'EMAIL_EXISTS':
-        errorMesaage = 'This email exists already';
+        errorMessage = 'This email exists already';
         break;
       case 'EMAIL_NOT_FOUND':
-        errorMesaage = 'Invalid credentials. Try again';
+        errorMessage = 'Invalid credentials. Try again';
         break;
       case 'INVALID_PASSWORD':
-        errorMesaage = 'Invalid credentials. Try again';
+        errorMessage = 'Invalid credentials. Try again';
         break;
     }
-    return throwError(errorMesaage);
+    return throwError(errorMessage);
   }
 
   logout() {
@@ -104,7 +104,6 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
-    console.log(expirationDuration);
    this.tokenExpirationTimer = setTimeout(()=>{
       this.logout();
     }, expirationDuration);
